@@ -1,14 +1,25 @@
 package com.sihyung;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Foo {
     public static void main(String[] args) {
-        Function<Integer, Integer> plus10 = (i) -> i + 10;
-        Function<Integer, Integer> multiply2 = (i) -> i * 2;
+        //BiFunction은 인자를 2개받음
 
-        // andThen 사용한 Function 먼저 실행 후 결과값으로 인자의 Function 실행
-        Function<Integer, Integer> plusAndThenMulti = plus10.andThen(multiply2);
-        System.out.println(plusAndThenMulti.apply(10));
+        //Consumer 예제 i -> x
+        Consumer<Integer> printT = (i) -> System.out.println(i);
+
+        //Supplier 예제 x -> i
+        Supplier<Integer> get10 = () -> 10;
+
+        //Predicate 예제 x -> T/F
+        Predicate<String> startsWithSihyung = (s) -> s.startsWith("Sihyung");
+        // And, or, negate 등 조합 가능
+        //startsWithSihyung.and(predicateB);
+        //startsWithSihyung.or(predicateB);
+
     }
 }
