@@ -9,9 +9,9 @@ import java.util.function.UnaryOperator;
 
 public class Foo {
     public static void main(String[] args) {
-        // instance reference
-        Greeting greeting = new Greeting();
-        UnaryOperator<String> hello = greeting::hello;
-        System.out.println(hello.apply("Sihyung"));
+        // 생성자 참조
+        Supplier<Greeting> newGreeting = Greeting::new;
+        Greeting greeting = newGreeting.get();
+        System.out.println(greeting.hello("hi"));
     }
 }
