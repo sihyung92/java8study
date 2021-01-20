@@ -17,4 +17,8 @@ public class Greeting {
     public static String hi(String name) {
         return "hi" + name;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -9,9 +9,9 @@ import java.util.function.UnaryOperator;
 
 public class Foo {
     public static void main(String[] args) {
-        // 생성자 참조
-        Supplier<Greeting> newGreeting = Greeting::new;
-        Greeting greeting = newGreeting.get();
-        System.out.println(greeting.hello("hi"));
+        // 인자가 있는 생성자 참조
+        Function<String, Greeting> sihyungGreeting = Greeting::new;
+        Greeting greeting = sihyungGreeting.apply("sihyung");
+        System.out.println(greeting.getName());
     }
 }
